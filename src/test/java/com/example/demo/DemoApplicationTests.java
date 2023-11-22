@@ -42,4 +42,9 @@ class DemoApplicationTests {
 		else
 			System.out.println("Personne introuvable avec cet identifiant");
 	}
+
+	@Test
+	void testDelete(){
+		personneRepository.deleteById(2);
+	}
 }
