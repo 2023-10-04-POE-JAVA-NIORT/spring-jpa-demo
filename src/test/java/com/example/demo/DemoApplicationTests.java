@@ -47,4 +47,14 @@ class DemoApplicationTests {
 	void testDelete(){
 		personneRepository.deleteById(2);
 	}
+
+	@Test
+	void update(){
+		Optional<Personne> optional = personneRepository.findById(1);
+		if(optional.isPresent()){
+			Personne personne = optional.get();
+			personne.setPrenom("Toto");
+			personneRepository.save(personne);
+		}
+	}
 }
