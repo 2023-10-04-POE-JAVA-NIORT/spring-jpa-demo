@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 class DemoApplicationTests {
 
@@ -19,6 +21,13 @@ class DemoApplicationTests {
 		personne.setPrenom("Jean-Christophe");
 
 		personneRepository.save(personne);
+	}
+
+	@Test
+	void testFindAll(){
+		List<Personne> personnes = personneRepository.findAll();
+		for (Personne p : personnes)
+			System.out.println(p);
 	}
 
 }
